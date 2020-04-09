@@ -4,15 +4,18 @@ const dotenv = require('dotenv');
 // To add colors in terminal text
 const colors = require('colors');
 
-
-const app = express();
-
 //Load env var
 dotenv.config({path:'./config/config.env'});
 
 //Coonect to database 
 const connectDB= require('./config/db');
 connectDB();
+
+const app = express();
+
+// Body parser
+app.use(express.json());
+
 
 // Routes files
 const bootcamps = require('./Routes/bootcamps');
@@ -32,12 +35,13 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 
-
 // Mount Routers
 app.use('/api/v1/bootcamp',bootcamps);
 
 
-
+//Middleware error   (To use middleware it has to be in right order)
+const errorHandler = require('./middleware/error');
+app.use(errorHandler);
 
 
 
