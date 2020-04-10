@@ -19,6 +19,7 @@ app.use(express.json());
 
 // Routes files
 const bootcamps = require('./Routes/bootcamps');
+const courses = require('./Routes/courses');
 
 
 // Custom Logger file
@@ -36,7 +37,8 @@ if(process.env.NODE_ENV === 'development'){
 
 
 // Mount Routers
-app.use('/api/v1/bootcamp',bootcamps);
+app.use('/api/v1/bootcamps',bootcamps);
+app.use('/api/v1/courses',courses);
 
 
 //Middleware error   (To use middleware it has to be in right order)
