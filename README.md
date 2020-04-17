@@ -12,3 +12,6 @@ NodeJS based a backend server provide useful api for devcamper project by Brad T
 - Validation using Mongoose and no external libraries
 - Use async/await (create middleware to clean up controller methods)
 - Create a database seeder to import and destroy data
+
+
+# Please also see README(Specs).md for Sepcification of project
